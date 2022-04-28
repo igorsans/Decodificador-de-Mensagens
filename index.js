@@ -1,18 +1,40 @@
-var cifraCesar = document.querySelector('#cifraCesar')
-var base64 = document.querySelector('#base64')
+var start = document.querySelector('#start')
 
-
-
-cifraCesar.addEventListener('click', function (e) {
+start.addEventListener('click', function (e){
     let here = document.querySelector('#here')
-    here.innerHTML = '<div class="teste"> <h2>Decodificar</h2> </div> <div> <div><label for="decodification">Insira abaixo o texto que deseja codificar</label></div> <div><input type="text" name="text" id="codificat" required autocomplete="off"></div> <div></div>  <div><button type="submit">Codificar!</button></div>'
+    here.innerHTML = '<div class=""><h2>Insira o seu texto abaixo.</h2></div> <div class=""><input type="text"></div><div><select name="typeCripto" id="typeCripto"><option value="valor1" selected>Base64</option><option value="valor2" id="cifraPasso">Cifra de César</option></select></div><div id="passo">teste</div><div><input type="radio" name="decoDe" id="codMsg">Codificar<input type="radio" name="decoDe" id="decodeMsg">Decodificar</div>'
+    
+    var select = document.querySelector('#typeCripto')
+    var codificar = document.querySelector('#codMsg')
+    var decodificar = document.querySelector('#decodeMsg')
+    
+    select.addEventListener('change', (e)=>{
+        if (select.value== 'valor2'){
+            document.createElement('p')
+            p.innerHTML = '<div>teste</div>'
+            let passo = document.querySelector('#passo')
+            passo.append('p')
+        };
+    })
+
+    codificar.addEventListener('click', function (e){
+        alert('opa meu bom')
+    })
 })
 
 
 
 
-base64.addEventListener('click', function (e) {
-    let here = document.querySelector('#here')
-    here.innerHTML = '<div class="teste"> teste2 </div>'
-    // está funcionado
-})
+
+
+
+
+
+
+
+
+
+
+
+
+
