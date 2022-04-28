@@ -28,8 +28,8 @@ start.addEventListener('click', function (e) {
             remocao.remove()
         }
         var codificationBtn = document.createElement('button')
-        codificationBtn.setAttribute("id","inCoder")
-        codificationBtn.setAttribute("onclick","encode64()")
+        codificationBtn.setAttribute("id", "inCoder")
+        codificationBtn.setAttribute("onclick", "encode64()")
         codificationBtn.innerText = 'Codificar Mensagem'
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(codificationBtn)
@@ -43,25 +43,44 @@ start.addEventListener('click', function (e) {
         }
         var decodificationBtn = document.createElement('button')
         decodificationBtn.innerText = 'Decodificar Mensagem'
-        decodificationBtn.setAttribute("id","outCoder")
-        decodificationBtn.setAttribute("onclick","decode64()")
+        decodificationBtn.setAttribute("id", "outCoder")
+        decodificationBtn.setAttribute("onclick", "decode64()")
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(decodificationBtn)
     })
 })
 
-function encode64(){
-    
+function encode64() {
+    var teste = document.querySelector('#passoN')
+if (teste === null) {
     let cod = document.getElementById('cod1').value
     let encodeStr = btoa(cod)
     let replace = document.getElementById('replace')
     replace.innerText = encodeStr
+} else {
+    alert('CESAR É UM NUMERO')
 }
-function decode64(){
+}
+function decode64() {
     let cod = document.getElementById('cod1').value
     let encodeStr = atob(cod)
     let replace = document.getElementById('replace')
     replace.innerText = encodeStr
+}
+function encodeCesar(){
+
+    let text = document.querySelector('#cod1').value
+    let passo = document.querySelector('#passoN').value
+    let passo1 = parseInt(passo)
+
+    let text1 = text.charCodeAt(0)
+    let text2= parseInt(text1)
+    
+    let calc1 = text2 -65 + passo1
+    console.log(calc1);
+    let replace = document.getElementById('replace')
+    replace.innerText = calc1
+
 }
 
 
