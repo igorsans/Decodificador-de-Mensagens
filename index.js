@@ -12,12 +12,12 @@ start.addEventListener('click', function (e) {
         if (select.value == 'valor2') {
 
             var passo = document.createElement('div')
-            passo.innerHTML = '<div id="teste1">teste1</div>'
+            passo.innerHTML = '<div id="remove1"><label for="passoN">Selecione o passo</label><input type="number" name="passoN" id="passoN"></div>'
             let passoPlace = document.querySelector('#passo')
             passoPlace.append(passo)
 
         } else if (select.value == 'valor1') {
-            var apagar = document.querySelector('#teste1')
+            var apagar = document.querySelector('#remove1')
             apagar.remove()
         };
     })
@@ -29,7 +29,7 @@ start.addEventListener('click', function (e) {
         }
         var codificationBtn = document.createElement('button')
         codificationBtn.setAttribute("id","inCoder")
-        codificationBtn.setAttribute("onclick","encode()")
+        codificationBtn.setAttribute("onclick","encode64()")
         codificationBtn.innerText = 'Codificar Mensagem'
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(codificationBtn)
@@ -44,19 +44,20 @@ start.addEventListener('click', function (e) {
         var decodificationBtn = document.createElement('button')
         decodificationBtn.innerText = 'Decodificar Mensagem'
         decodificationBtn.setAttribute("id","outCoder")
-        decodificationBtn.setAttribute("onclick","decode()")
+        decodificationBtn.setAttribute("onclick","decode64()")
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(decodificationBtn)
     })
 })
 
-function encode(){
+function encode64(){
+    
     let cod = document.getElementById('cod1').value
     let encodeStr = btoa(cod)
     let replace = document.getElementById('replace')
     replace.innerText = encodeStr
 }
-function decode(){
+function decode64(){
     let cod = document.getElementById('cod1').value
     let encodeStr = atob(cod)
     let replace = document.getElementById('replace')
