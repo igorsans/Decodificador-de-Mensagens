@@ -1,5 +1,6 @@
 var start = document.querySelector('#start')
 
+
 start.addEventListener('click', function (e) {
     let here = document.querySelector('#here')
     here.innerHTML = '<div class=""><h2>Insira o seu texto abaixo.</h2></div> <div class=""><input type="text" id="cod1"></div><div><select name="typeCripto" id="typeCripto"><option value="valor1" selected>Base64</option><option value="valor2" id="cifraPasso">Cifra de César</option></select></div><div id="passo"></div><div><input type="radio" name="decoDe" id="codMsg">Codificar<input type="radio" name="decoDe" id="decodeMsg">Decodificar</div><div id="DeCode"></div><fieldset><div><h2>Verifique o resultado abaixo:</h2></div><div id="replace"></div></fieldset>'
@@ -72,14 +73,26 @@ function encodeCesar(){
     let text = document.querySelector('#cod1').value
     let passo = document.querySelector('#passoN').value
     let passo1 = parseInt(passo)
+    for(let i=0; i<text.length; i++){
+        let textRes = (text.charCodeAt(i) -65 + passo1 ) % 26
+        var resultado = []
+        console.log(resultado);
+        resultado += resultado.push(textRes)
+        // console.log(textRes);
+        // console.log(typeof textRes);
+        // console.log(typeof passo1);
+        console.log(resultado)
 
-    let text1 = text.charCodeAt(0)
-    let text2= parseInt(text1)
+
+        // pegar o valor da string no charCodeAt de cada e armazenar em uma var
+    }
+    // let text1 = text.charCodeAt(0)
+    // let text2= parseInt(text1)
     
-    let calc1 = text2 -65 + passo1
-    console.log(calc1);
-    let replace = document.getElementById('replace')
-    replace.innerText = calc1
+    // let calc1 = text2 -65 + passo1
+    // console.log(calc1);
+    // let replace = document.getElementById('replace')
+    // replace.innerText = calc1
 
 }
 
