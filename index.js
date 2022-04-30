@@ -34,6 +34,9 @@ start.addEventListener('click', function (e) {
         codificationBtn.innerText = 'Codificar Mensagem'
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(codificationBtn)
+        codificationBtn.addEventListener('click', (e) => {
+            e.preventDefault()
+        })
     })
     decodificar.addEventListener('click', (e) => {
 
@@ -47,6 +50,9 @@ start.addEventListener('click', function (e) {
         decodificationBtn.setAttribute("onclick", "decode64()")
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(decodificationBtn)
+        decodificationBtn.addEventListener('click', (e)=> {
+            e.preventDefault()
+        })
     })
 })
 function encode64() {
@@ -57,31 +63,54 @@ if (teste === null) {
     let replace = document.getElementById('replace')
     replace.innerText = encodeStr
 } else {
-    alert('CESAR É UM NUMERO')
+    encodeCesar()
 }
 }
 function decode64() {
+    var teste = document.querySelector('#passoN')
+    if (teste === null) {
     let cod = document.getElementById('cod1').value
     let encodeStr = atob(cod)
     let replace = document.getElementById('replace')
     replace.innerText = encodeStr
+    } else {
+        decodeCesar()
+    }
 }
+
+
 function encodeCesar(){
-    let result = []
+    let result = "";
     let text = document.querySelector('#cod1').value
     let passo = document.querySelector('#passoN').value
     let passo1 = parseInt(passo)
     for(let i=0; i<text.length; i++){
-        let textRes = (text.charCodeAt(i) -65 + passo1 ) % 26
-        result.push(textRes)
-        console.log(result);
-        console.log(typeof result);
+        var asciiNum = text[i].charCodeAt()
+        if (asciiNum >= 65 && asciiNum <= 90){
+            var teste = (asciiNum - 65 + passo1) %26
+            result += String.fromCharCode(teste + 65)
+        } else{
+            result += text[i]
+        } 
     }
     let replace = document.getElementById('replace')
     replace.innerText = result
-    var testando = result.toString()
-    console.log(testando);
-
+}
+function decodeCesar(){
+    let result = "";
+    let text = document.querySelector('#cod1').value
+    let passo = document.querySelector('#passoN').value
+    for(let i=0; i<text.length; i++){
+        var asciiNum = text[i].charCodeAt()
+        if (asciiNum >= 65 && asciiNum <= 90){
+            var teste = (asciiNum - 65 -passo) %(-26)
+            result += String.fromCharCode(teste + 65)
+        } else{
+            result += text[i]
+        } 
+    }
+    let replace = document.getElementById('replace')
+    replace.innerText = result
 }
 
 
