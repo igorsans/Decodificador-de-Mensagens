@@ -2,6 +2,94 @@
     margin: 0;
     padding: 0;
 }
+@font-face {
+    font-family: 'crip';
+    src: url(fonts/UnifrakturCook-Bold.ttf) format('truetype');
+}
+@font-face {
+    font-family: 'Syn';
+    src: url(fonts/Fahkwang-Regular.ttf) format('truetype');
+}
 #start{
     cursor: pointer;
+}
+body{
+    background-image: linear-gradient(to bottom,rgb(222, 255, 222), rgb(234, 252, 235));
+    }
+.main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 98vh;
+    text-align: center;
+}
+.zima{
+    border: 10px solid transparent;
+    border-image: url(./imagens/bordeleaf.png) 10 round;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.953);
+}
+.tittle{
+    margin: auto;
+    font-size: 9em;
+    transition: 4s;
+    font-family: 'crip';
+}
+.font{
+    font-family: 'Syn', sans-serif;
+}
+#cod1{
+    height: 130px;
+    width: 400px;
+}
+.fieldset1{
+    width: 400px;
+    height: 130px;
+    margin: auto;
+}
+#cod1{
+    margin: 15px;
+}
+#typeCripto{
+    margin: 10px;
+}
+.selectCripto{
+    margin: 10px;
+}
+#passoN{
+    margin-left: 10px;
+}
+#inCoder,#outCoder{
+    margin: 15px;
+    height: 40px;
+    width: auto;
+    padding: 10px;
+    background-color: rgb(179, 234, 179);
+    border-radius: 10px;
+    font-size: 1em;
+}
+#codeMsg,#decodeMsg{
+    margin: 5px;
+}
+footer{
+    text-align: center;
+}
+@media screen and (max-width: 768px) {
+    .main{
+        height: 90vh;
+        margin: auto;
+    }
+    #start{
+        font-size: 7em;
+    }
+}
+@media screen and (max-width: 425px) {
+    .zima{
+        padding: 1px;
+        /* max-width: 400px; */
+    }
+    #start{
+        font-size: 5em;
+    }
 }
