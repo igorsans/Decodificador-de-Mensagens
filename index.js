@@ -66,8 +66,8 @@ start.addEventListener('click', function (e) {
     })
 })
 function encode64() {
-    var teste = document.querySelector('#passoN')
-    if (teste === null) {
+    let passoN = document.querySelector('#passoN')
+    if (passoN === null) {
         let cod = document.getElementById('cod1').value
         let encodeStr = btoa(cod)
         let replace = document.getElementById('replace')
@@ -77,8 +77,8 @@ function encode64() {
     }
 }
 function decode64() {
-    var teste = document.querySelector('#passoN')
-    if (teste === null) {
+    let passoN = document.querySelector('#passoN')
+    if (passoN === null) {
         let cod = document.getElementById('cod1').value
         let encodeStr = atob(cod)
         let replace = document.getElementById('replace')
@@ -97,8 +97,8 @@ function encodeCesar() {
     for (let i = 0; i < text.length; i++) {
         var asciiNum = text[i].charCodeAt()
         if (asciiNum >= 65 && asciiNum <= 90) {
-            var teste = (asciiNum - 65 + passo1) % 26
-            result += String.fromCharCode(teste + 65)
+            let numRes = (asciiNum - 65 + passo1) % 26
+            result += String.fromCharCode(numRes + 65)
         } else {
             result += text[i]
         }
@@ -113,8 +113,8 @@ function decodeCesar() {
     for (let i = 0; i < text.length; i++) {
         var asciiNum = text[i].charCodeAt()
         if (asciiNum >= 65 && asciiNum <= 90) {
-            var teste = (asciiNum - 65 - passo +26) % 26
-            result += String.fromCharCode(teste + 65)
+            let numRes = (asciiNum - 65 - passo +26) % 26
+            result += String.fromCharCode(numRes + 65)
         } else {
             result += text[i]
         }
