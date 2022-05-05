@@ -6,13 +6,6 @@ start.addEventListener('click', function (e) {
     let here = document.querySelector('#here')
     here.innerHTML = '<div class=""><h2 class="font">Insira o seu texto abaixo.</h2></div> <div class=""><input type="text" id="cod1"></div><div><select name="typeCripto" id="typeCripto"><option value="valor1" selected>Base64</option><option value="valor2" id="cifraPasso">Cifra de César</option></select></div><div id="passo"></div><div class="selectCripto"><input type="radio" name="decoDe" id="codMsg">Codificar<input type="radio" name="decoDe" id="decodeMsg">Decodificar</div><div id="DeCode"></div><fieldset class="fieldset1"><legend><p class="font">Verifique o resultado abaixo</p></legend><div id="replace"></div></fieldset>'
 
-    var cod1 = document.querySelector('#cod1')
-    cod1.addEventListener('keypress', (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault
-        }
-    })
-
     var select = document.querySelector('#typeCripto')
     var codificar = document.querySelector('#codMsg')
     var decodificar = document.querySelector('#decodeMsg')
@@ -38,7 +31,7 @@ start.addEventListener('click', function (e) {
         }
         var codificationBtn = document.createElement('button')
         codificationBtn.setAttribute("id", "inCoder")
-        codificationBtn.setAttribute("onclick", "encode64()")
+        codificationBtn.setAttribute("onclick", "encode()")
         codificationBtn.setAttribute("class", "font")
         codificationBtn.innerText = 'Codificar Mensagem'
         var btnPlace = document.querySelector('#DeCode')
@@ -48,7 +41,6 @@ start.addEventListener('click', function (e) {
         })
     })
     decodificar.addEventListener('click', (e) => {
-
         var remocao = document.querySelector('button')
         if (remocao) {
             remocao.remove()
@@ -56,7 +48,7 @@ start.addEventListener('click', function (e) {
         var decodificationBtn = document.createElement('button')
         decodificationBtn.innerText = 'Decodificar Mensagem'
         decodificationBtn.setAttribute("id", "outCoder")
-        decodificationBtn.setAttribute("onclick", "decode64()")
+        decodificationBtn.setAttribute("onclick", "decode()")
         decodificationBtn.setAttribute("class", "font")
         var btnPlace = document.querySelector('#DeCode')
         btnPlace.append(decodificationBtn)
@@ -65,7 +57,9 @@ start.addEventListener('click', function (e) {
         })
     })
 })
-function encode64() {
+
+// DECODIFICADORES
+function encode() {
     let passoN = document.querySelector('#passoN')
     if (passoN === null) {
         let cod = document.getElementById('cod1').value
@@ -76,7 +70,7 @@ function encode64() {
         encodeCesar()
     }
 }
-function decode64() {
+function decode() {
     let passoN = document.querySelector('#passoN')
     if (passoN === null) {
         let cod = document.getElementById('cod1').value
@@ -99,6 +93,9 @@ function encodeCesar() {
         if (asciiNum >= 65 && asciiNum <= 90) {
             let numRes = (asciiNum - 65 + passo1) % 26
             result += String.fromCharCode(numRes + 65)
+        } else if (asciiNum >=97 && asciiNum <= 122) {
+            let numRes = (asciiNum - 97 + passo1 + 26) % 26
+            result += String.fromCharCode(numRes + 97)
         } else {
             result += text[i]
         }
@@ -115,6 +112,9 @@ function decodeCesar() {
         if (asciiNum >= 65 && asciiNum <= 90) {
             let numRes = (asciiNum - 65 - passo +26) % 26
             result += String.fromCharCode(numRes + 65)
+        } else if (asciiNum >=97 && asciiNum <= 122) {
+            let numRes = (asciiNum - 97 - passo + 26) % 26
+            result += String.fromCharCode(numRes + 97)
         } else {
             result += text[i]
         }
